@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nooks · Startups I Am Watching</title>
+<meta name="description" content="Notes on Nooks: the sales-engagement market, the competitor landscape, and why real-time voice AI is the layer that does not commoditize.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F7F7F2;
+    --bg-2:#EEEDE5;
+    --dark:#111110;
+    --dark-2:#1E1E1C;
+    --lime:#C9F455;
+    --lime-soft:#E4F9A8;
+    --lime-dim:#8BAF20;
+    --ink:#161614;
+    --ink-2:#4A4A45;
+    --muted:#8E8C84;
+    --line:#DDD9CC;
+    --line-dark:#2C2C28;
+    --max:760px;
+    --gutter:32px;
+    --f-d:"Syne",sans-serif;
+    --f-b:"Instrument Sans",sans-serif;
+    --f-m:"JetBrains Mono",monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);color:var(--ink);
+    font-family:var(--f-b);font-size:19px;line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    cursor:none;position:relative;overflow-x:hidden;
+  }
+  a,button,input{cursor:none}
+
+  /* grain */
+  body::before{
+    content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.04;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* custom cursor */
+  .cursor{
+    width:10px;height:10px;background:var(--lime);border-radius:50%;
+    position:fixed;left:0;top:0;z-index:9999;pointer-events:none;
+    transform:translate(-50%,-50%);
+    transition:width .2s,height .2s,background .2s;
+    mix-blend-mode:multiply;
+  }
+  .cursor.over-dark{mix-blend-mode:screen}
+  .cursor.hover{width:32px;height:32px;background:rgba(201,244,85,.35)}
+  @media(hover:none){.cursor{display:none}body,a,button{cursor:auto}}
+
+  /* layout */
+  .container{position:relative;z-index:1;max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+  .full-bleed{width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw}
+
+  /* masthead */
+  header.site{background:var(--dark);color:#fff;position:relative;z-index:2}
+  .masthead{max-width:var(--max);margin:0 auto;padding:18px var(--gutter);display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .brand{font-family:var(--f-m);font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:#fff;text-decoration:none;font-weight:500;display:inline-flex;align-items:center;gap:10px}
+  .brand .dot{width:8px;height:8px;background:var(--lime);border-radius:50%;display:inline-block}
+  .brand span{color:var(--lime)}
+  nav.site{display:flex;flex-wrap:wrap;gap:6px 18px}
+  nav.site a{font-family:var(--f-m);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#888;text-decoration:none;position:relative;padding:4px 0;transition:color .2s}
+  nav.site a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--lime);transition:width .25s}
+  nav.site a:hover{color:#fff}
+  nav.site a:hover::after{width:100%}
+  nav.site a.active{color:#fff}
+  nav.site a.active::after{width:100%}
+
+  /* hero */
+  .hero{padding:90px 0 50px}
+  .eyebrow{font-family:var(--f-m);font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--lime-dim);margin-bottom:28px;display:inline-flex;align-items:center;gap:10px}
+  .eyebrow::before{content:"";width:24px;height:1px;background:var(--lime-dim);display:inline-block}
+  h1.title{
+    font-family:var(--f-d);font-weight:800;
+    font-size:clamp(72px,15vw,156px);line-height:.88;
+    letter-spacing:-.045em;margin-bottom:24px;color:var(--ink);
+  }
+  h1.title em{font-style:italic;font-weight:600;color:var(--lime-dim)}
+  .tagline{font-family:var(--f-b);font-size:clamp(20px,3vw,26px);font-weight:400;color:var(--ink-2);line-height:1.35;max-width:580px;margin-bottom:48px}
+  .tagline mark{background:var(--lime);color:var(--ink);padding:0 6px;font-weight:500}
+  .meta{display:flex;flex-wrap:wrap;gap:8px 24px;font-family:var(--f-m);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .meta .sep{color:var(--line)}
+  .meta a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--lime)}
+
+  /* stats strip, the visual hit */
+  .stats{background:var(--dark);padding:72px 0;margin:64px 0;position:relative;overflow:hidden}
+  .stats::before{
+    content:"";position:absolute;inset:0;opacity:.06;pointer-events:none;
+    background-image:radial-gradient(circle at 25% 30%,var(--lime) 0,transparent 40%),radial-gradient(circle at 80% 70%,var(--lime) 0,transparent 35%);
+  }
+  .stats-inner{max-width:var(--max);margin:0 auto;padding:0 var(--gutter);display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;z-index:1}
+  .stat{padding:0 22px;border-right:1px solid var(--line-dark);position:relative}
+  .stat:first-child{padding-left:0}
+  .stat:last-child{padding-right:0;border-right:none}
+  .stat-num{
+    display:block;font-family:var(--f-d);font-weight:800;
+    font-size:clamp(36px,6vw,62px);line-height:1;color:var(--lime);
+    letter-spacing:-.03em;margin-bottom:18px;font-variant-numeric:tabular-nums;
+  }
+  .stat-label{font-family:var(--f-m);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:#9A9A93;line-height:1.55}
+  .stat-src{display:block;color:#5E5D58;margin-top:6px;font-size:9.5px;letter-spacing:.03em;text-transform:none}
+
+  /* article */
+  article{padding-bottom:40px}
+  article p{margin-bottom:24px;color:var(--ink-2)}
+  article p.lead{font-size:22px;color:var(--ink);line-height:1.55}
+  article strong{color:var(--ink);font-weight:600}
+
+  .section-label{font-family:var(--f-m);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--lime-dim);margin:72px 0 10px;display:inline-flex;align-items:center;gap:10px}
+  .section-label::before{content:"";width:18px;height:1px;background:var(--lime-dim)}
+  h2{font-family:var(--f-d);font-weight:700;font-size:clamp(30px,5vw,44px);line-height:1.02;letter-spacing:-.025em;margin-bottom:26px;color:var(--ink)}
+
+  /* the big pull quote */
+  .pull{
+    font-family:var(--f-d);font-weight:600;
+    font-size:clamp(34px,6.5vw,62px);line-height:1.04;letter-spacing:-.025em;
+    color:var(--ink);margin:64px 0;position:relative;padding-left:0;
+  }
+  .pull mark{background:var(--lime);color:var(--ink);padding:0 8px;font-style:italic}
+
+  /* competitor table */
+  .comp-wrap{margin:24px 0 48px;border:1px solid var(--line);border-radius:2px;overflow:hidden;background:var(--bg-2)}
+  .comp-head{display:grid;grid-template-columns:1.3fr repeat(4,1fr);background:var(--dark);color:#fff;font-family:var(--f-m);font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:14px 18px;gap:8px}
+  .comp-head div{line-height:1.3}
+  .comp-head div:first-child{color:var(--lime)}
+  .comp-head div:not(:first-child){text-align:center;color:#9A9A93}
+  .comp-row{display:grid;grid-template-columns:1.3fr repeat(4,1fr);padding:18px;gap:8px;align-items:center;border-bottom:1px solid var(--line);transition:background .2s}
+  .comp-row:last-child{border-bottom:none}
+  .comp-row:hover{background:var(--bg)}
+  .comp-row.you{background:#F3FBD9}
+  .comp-row.you:hover{background:#EDF8C2}
+  .co-name{font-family:var(--f-d);font-weight:600;font-size:18px;color:var(--ink);letter-spacing:-.01em}
+  .co-name small{display:block;font-family:var(--f-m);font-size:9.5px;letter-spacing:.06em;color:var(--muted);text-transform:uppercase;font-weight:400;margin-top:2px}
+  .cap{text-align:center;font-size:22px;line-height:1;font-family:var(--f-m)}
+  .cap.full{color:var(--lime-dim)}
+  .cap.part{color:var(--muted)}
+  .cap.none{color:var(--line)}
+  .comp-row.you .cap.full{color:var(--ink);font-weight:700}
+  .legend{font-family:var(--f-m);font-size:10.5px;letter-spacing:.06em;color:var(--muted);margin-top:14px;display:flex;flex-wrap:wrap;gap:18px}
+  .legend span{display:inline-flex;align-items:center;gap:6px}
+  .legend i{font-style:normal;font-size:14px}
+
+  /* diagram */
+  figure.diagram{margin:36px 0 18px;padding:30px 26px 22px;background:var(--bg-2);border:1px solid var(--line);border-radius:2px}
+  figure.diagram svg{width:100%;height:auto;display:block}
+  figcaption{font-family:var(--f-m);font-size:11px;letter-spacing:.04em;color:var(--muted);margin-top:16px;line-height:1.55}
+
+  /* dark callout */
+  .callout{
+    background:var(--dark);color:#D6D5CC;padding:36px 38px;margin:48px 0;
+    border-left:4px solid var(--lime);font-size:18px;line-height:1.55;
+    position:relative;
+  }
+  .callout strong{color:var(--lime);font-family:var(--f-d);font-weight:700;font-size:20px;display:block;margin-bottom:12px;letter-spacing:-.01em}
+  .callout em{color:#fff;font-style:italic}
+
+  /* footer */
+  footer.site{background:var(--dark);color:#9A9A93;padding:50px 0 70px;margin-top:80px;font-family:var(--f-m);font-size:12px;letter-spacing:.04em;line-height:1.8}
+  footer.site .inner{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+  footer.site .name{color:#fff;font-family:var(--f-d);font-size:20px;font-weight:700;letter-spacing:-.01em;margin-bottom:8px}
+  footer.site a{color:var(--lime);text-decoration:none}
+  footer.site a:hover{text-decoration:underline}
+  .backlink{display:inline-flex;align-items:center;gap:8px;margin-top:22px;font-family:var(--f-m);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#fff;text-decoration:none;padding:10px 0;border-bottom:1px solid var(--lime);width:fit-content}
+  .backlink:hover{color:var(--lime)}
+
+  /* reveal animation */
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  @media(max-width:640px){
+    body{font-size:17px}
+    .container{padding:0 22px}
+    .stats-inner{grid-template-columns:repeat(2,1fr);gap:36px 0;padding:0 22px}
+    .stat{padding:0 14px;border-right:1px solid var(--line-dark)}
+    .stat:nth-child(2){border-right:none;padding-right:0}
+    .stat:nth-child(3){padding-left:0}
+    .stat:nth-child(odd){border-right:1px solid var(--line-dark)}
+    .stat:nth-child(even){border-right:none}
+    .comp-head,.comp-row{grid-template-columns:1.2fr repeat(4,.6fr);font-size:9px;padding:12px}
+    .co-name{font-size:15px}
+    .cap{font-size:18px}
+    .callout{padding:26px 24px}
+  }
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+
+<header class="site">
+  <div class="masthead">
+    <a class="brand" href="index.html"><span class="dot"></span>Startups I Am <span>Watching</span></a>
+    <nav class="site">
+      <a href="nooks.html" class="active">Nooks</a>
+      <a href="standard-intelligence.html">Standard Intelligence</a>
+      <a href="glimpse.html">Glimpse</a>
+      <a href="runway.html">Runway</a>
+      <a href="ramp.html">Ramp</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <section class="hero">
+      <p class="eyebrow reveal">No. 01 / Real-Time AI</p>
+      <h1 class="title reveal">Nooks<em>.</em></h1>
+      <p class="tagline reveal">Real-time AI riding a live voice channel, where a suggestion <mark>two seconds late</mark> is as good as wrong.</p>
+      <div class="meta reveal">
+        <span>San Francisco &rarr; Seattle</span><span class="sep">/</span>
+        <span>Series B</span><span class="sep">/</span>
+        <span>Founded 2020</span><span class="sep">/</span>
+        <span>~200 employees</span><span class="sep">/</span>
+        <a href="https://nooks.ai" target="_blank" rel="noopener">nooks.ai</a>
+      </div>
+    </section>
+  </div>
+
+  <section class="stats full-bleed reveal" data-dark>
+    <div class="stats-inner">
+      <div class="stat">
+        <span class="stat-num" data-to="9.2" data-dec="1" data-prefix="$" data-suffix="B">$0B</span>
+        <span class="stat-label">Sales Engagement Market<span class="stat-src">2026 · Persistence Market Research</span></span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" data-to="16.4" data-dec="1" data-suffix="%">0%</span>
+        <span class="stat-label">Annual Growth Rate<span class="stat-src">2026 to 2033 CAGR</span></span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" data-to="43" data-dec="0" data-prefix="$" data-suffix="M">$0M</span>
+        <span class="stat-label">Latest Round<span class="stat-src">Series B · Kleiner Perkins, Oct 2024</span></span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" data-to="6" data-dec="0" data-suffix="&times;">0&times;</span>
+        <span class="stat-label">Revenue Growth<span class="stat-src">since Series B · GeekWire, Feb 2026</span></span>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <article>
+      <p class="lead reveal">What Nooks is doing is deceptively hard. Coaching a sales rep during a live call sounds simple until you sit with the latency budget. Transcription, inference, and context retrieval all have to run in real time, over a voice channel, while a human conversation is happening. The margin for error is essentially zero. A suggestion that arrives two seconds late is worse than no suggestion at all.</p>
+
+      <p class="reveal">Having worked on real-time communications infrastructure, I think about this problem a lot. The stack required to make AI feel instantaneous over voice is a different animal from the one that makes it feel fast in a chat interface. Buffering, jitter, and codec variance all compound, and none of it is forgiving. When a product like Nooks is smooth enough that sales teams keep it running during live calls, that smoothness is the tell. It means the hard parts underneath were taken seriously.</p>
+
+      <p class="section-label reveal">The Market</p>
+      <h2 class="reveal">A nine-billion-dollar category, actively consolidating.</h2>
+
+      <p class="reveal">The sales engagement market sits at roughly nine billion dollars in 2026, growing at sixteen percent annually. Underneath that healthy-looking number, something more interesting is happening. Gartner formalized a new category in 2025 called Revenue Action Orchestration, which collapses sales engagement, conversation intelligence, and revenue forecasting into a single platform. The Clari-Salesloft merger is the clearest proof: a revenue intelligence company and a sales engagement company combining to cover the full workflow. The standalone tools are getting absorbed.</p>
+
+      <p class="reveal">The layer getting absorbed first is basic sequencing. Automated email queues, call scheduling, follow-up cadences. This is exactly the kind of workflow AI agents replace. Analysts project that forty percent of enterprise software will embed AI agents by end of 2026, up from under five percent in 2025. The commodity layer of outbound sales is going first. What remains is the question.</p>
+
+      <p class="section-label reveal">The Landscape</p>
+      <h2 class="reveal">Where the players actually sit.</h2>
+      <p class="reveal">Most platforms do one or two things well. Nooks is the only one purpose-built across all four legs of the modern outbound stack, with real-time in-call intelligence as the spine rather than an add-on.</p>
+
+      <div class="comp-wrap reveal">
+        <div class="comp-head">
+          <div>Company</div>
+          <div>Real-time<br>in-call</div>
+          <div>Post-call<br>coaching</div>
+          <div>Parallel<br>dial</div>
+          <div>AI<br>prospect</div>
+        </div>
+        <div class="comp-row you">
+          <div class="co-name">Nooks<small>The Subject</small></div>
+          <div class="cap full">●</div>
+          <div class="cap full">●</div>
+          <div class="cap full">●</div>
+          <div class="cap full">●</div>
+        </div>
+        <div class="comp-row">
+          <div class="co-name">Gong<small>Post-call intelligence</small></div>
+          <div class="cap none">○</div>
+          <div class="cap full">●</div>
+          <div class="cap none">○</div>
+          <div class="cap none">○</div>
+        </div>
+        <div class="comp-row">
+          <div class="co-name">Salesloft<small>Broad, now merging</small></div>
+          <div class="cap part">◐</div>
+          <div class="cap part">◐</div>
+          <div class="cap part">◐</div>
+          <div class="cap part">◐</div>
+        </div>
+        <div class="comp-row">
+          <div class="co-name">Orum<small>Volume dialer</small></div>
+          <div class="cap none">○</div>
+          <div class="cap part">◐</div>
+          <div class="cap full">●</div>
+          <div class="cap none">○</div>
+        </div>
+        <div class="comp-row">
+          <div class="co-name">Apollo.io<small>Data and prospecting</small></div>
+          <div class="cap none">○</div>
+          <div class="cap none">○</div>
+          <div class="cap none">○</div>
+          <div class="cap full">●</div>
+        </div>
+      </div>
+      <p class="legend reveal">
+        <span><i style="color:var(--lime-dim)">●</i> Purpose-built</span>
+        <span><i style="color:var(--muted)">◐</i> Partial or bundled</span>
+        <span><i style="color:var(--line)">○</i> Not a focus</span>
+      </p>
+
+      <p class="reveal">Gong is strong on post-call analysis but lives entirely in the past tense. Orum scales high-volume dialing but lacks coaching depth and has stagnated after layoffs in 2023. Salesloft, now merging with Clari, is broadening toward the orchestration model but real-time in-call intelligence is not its core. Apollo is a data and prospecting powerhouse with limited presence in the live conversation.</p>
+
+      <p class="section-label reveal">The Engineering</p>
+      <h2 class="reveal">A budget measured in milliseconds.</h2>
+      <p class="reveal">Chat assistants get to think in seconds. A live call does not. Everything between the moment a prospect stops talking and the moment a rep needs to respond has to fit inside a window you can feel, and every stage of the pipeline spends from the same small account.</p>
+
+      <figure class="diagram reveal">
+        <svg viewBox="0 0 680 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram of the real-time inference budget on a live call">
+          <defs>
+            <style>
+              .lbl{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.04em;fill:#4A4A45}
+              .lbls{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.04em;fill:#8E8C84}
+              .stg{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;fill:#161614}
+            </style>
+            <marker id="arr" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
+              <path d="M0 0 L7 3.5 L0 7 z" fill="#8BAF20"/>
+            </marker>
+          </defs>
+          <text class="lbls" x="20" y="34">PROSPECT STOPS TALKING</text>
+          <text class="lbls" x="660" y="34" text-anchor="end">REP MUST RESPOND</text>
+          <line x1="20" y1="44" x2="660" y2="44" stroke="#DDD9CC" stroke-width="1"/>
+          <circle cx="20" cy="44" r="5" fill="#C9F455" stroke="#8BAF20" stroke-width="1"/>
+          <circle cx="660" cy="44" r="5" fill="#C9F455" stroke="#8BAF20" stroke-width="1"/>
+          <path d="M20 56 L20 64 L660 64 L660 56" fill="none" stroke="#8BAF20" stroke-width="1.5"/>
+          <text class="lbl" x="340" y="84" text-anchor="middle" fill="#8BAF20" font-weight="700">entire budget &#8776; a few hundred milliseconds</text>
+          <g transform="translate(0,106)">
+            <rect x="20"  y="0" width="148" height="58" rx="2" fill="#F7F7F2" stroke="#DDD9CC"/>
+            <rect x="184" y="0" width="148" height="58" rx="2" fill="#F7F7F2" stroke="#DDD9CC"/>
+            <rect x="348" y="0" width="148" height="58" rx="2" fill="#F7F7F2" stroke="#DDD9CC"/>
+            <rect x="512" y="0" width="148" height="58" rx="2" fill="#F7F7F2" stroke="#DDD9CC"/>
+            <text class="stg" x="94"  y="26" text-anchor="middle">TRANSCRIBE</text>
+            <text class="lbls" x="94"  y="42" text-anchor="middle">speech &rarr; text</text>
+            <text class="stg" x="258" y="26" text-anchor="middle">RETRIEVE</text>
+            <text class="lbls" x="258" y="42" text-anchor="middle">context + intent</text>
+            <text class="stg" x="422" y="26" text-anchor="middle">INFER</text>
+            <text class="lbls" x="422" y="42" text-anchor="middle">model call</text>
+            <text class="stg" x="586" y="26" text-anchor="middle">SURFACE</text>
+            <text class="lbls" x="586" y="42" text-anchor="middle">cue to rep</text>
+            <path d="M168 29 L184 29" stroke="#8BAF20" stroke-width="1.5" marker-end="url(#arr)"/>
+            <path d="M332 29 L348 29" stroke="#8BAF20" stroke-width="1.5" marker-end="url(#arr)"/>
+            <path d="M496 29 L512 29" stroke="#8BAF20" stroke-width="1.5" marker-end="url(#arr)"/>
+          </g>
+          <text class="lbls" x="20" y="210">JITTER &middot; BUFFERING &middot; CODEC VARIANCE compound across every hop</text>
+          <line x1="20" y1="220" x2="660" y2="220" stroke="#DDD9CC" stroke-width="1" stroke-dasharray="2 4"/>
+        </svg>
+        <figcaption>Four stages, one shared budget. In chat, slack hides in seconds. Over voice, the same pipeline has to clear before the silence gets awkward, and network reality eats into it at every hop.</figcaption>
+      </figure>
+
+      <p class="reveal">The fact that Nooks has made this smooth enough for live use says something real about the infrastructure beneath it. The forty-three-million-dollar Series B and the Seattle engineering push, zero to six engineers in short order with an office opening, are consistent with a team that knows the hardest problems are still ahead.</p>
+
+      <p class="pull reveal">The stack that makes AI feel <mark>instantaneous</mark> over voice is a different problem from the one that makes it feel fast in chat.</p>
+
+      <p class="section-label reveal">The Frontier</p>
+      <h2 class="reveal">What does not commoditize.</h2>
+
+      <p class="reveal">The consolidation wave in sales tech is eating the commodity layer first. Basic sequencing, automated emails, call queues, follow-up cadences. These are exactly the kind of workflows AI agents absorb. The Clari-Salesloft merger is a bet that the future belongs to full-stack orchestration platforms, not point solutions. That pressure will force smaller players to either find defensible depth or get acquired.</p>
+
+      <p class="reveal">What an AI agent cannot replace is the conversation itself. Specifically, the eight seconds after a prospect raises a hard objection, when a well-timed response reframes the deal and a fumbled one loses it. Post-call analysis tells you what happened, which is useful but late. Parallel dialing gets you more at-bats, which is useful but shallow. Neither is present when the conversation turns. That is the layer Nooks is building toward, and it is the one that requires sub-second latency engineering most sales-tech companies have not had to solve.</p>
+
+      <div class="callout reveal">
+        <strong>The question I keep sitting with</strong>
+        Does real-time in-call AI stay a coaching signal for a human rep, or does it eventually become a more active co-pilot? And as AI agents take over the prospecting and sequencing layer, what does the SDR role actually become? <em>Nooks seems to be building toward an answer.</em> The Seattle investment reads less like an office opening and more like a signal that the technically hard problems are still ahead of them.
+      </div>
+
+      <p class="reveal">That is the bet worth watching. Not whether the market grows (it will) but whether the real-time voice layer turns out to be a durable moat or a feature that gets bundled into something broader. From where I sit, the engineering required to do it well argues for the former.</p>
+    </article>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="inner">
+    <div class="name">Anjali Baheti</div>
+    Backend and product engineer. Real-time communications, backend systems, and AI integrations.<br>
+    <a href="mailto:bahetianjali.10@gmail.com">bahetianjali.10@gmail.com</a> &middot; <a href="https://linkedin.com/in/bahetianjali" target="_blank" rel="noopener">linkedin.com/in/bahetianjali</a>
+    <br>
+    <a class="backlink" href="index.html">&larr; All companies</a>
+  </div>
+</footer>
+
+<script>
+  // custom cursor
+  (function(){
+    const c = document.getElementById('cursor');
+    let x=0,y=0,cx=0,cy=0;
+    document.addEventListener('mousemove',e=>{x=e.clientX;y=e.clientY});
+    function tick(){
+      cx += (x-cx)*0.22; cy += (y-cy)*0.22;
+      c.style.transform = `translate(${cx}px,${cy}px) translate(-50%,-50%)`;
+      // detect dark sections
+      const el = document.elementFromPoint(x,y);
+      if(el){
+        const dark = el.closest('[data-dark], header.site, footer.site, .callout');
+        c.classList.toggle('over-dark', !!dark);
+      }
+      requestAnimationFrame(tick);
+    }
+    tick();
+    document.querySelectorAll('a, .stat, .comp-row').forEach(el=>{
+      el.addEventListener('mouseenter',()=>c.classList.add('hover'));
+      el.addEventListener('mouseleave',()=>c.classList.remove('hover'));
+    });
+  })();
+
+  // scroll reveal
+  (function(){
+    const io = new IntersectionObserver((ents)=>{
+      ents.forEach(e=>{
+        if(e.isIntersecting){
+          e.target.classList.add('in');
+          // trigger counters inside this element
+          e.target.querySelectorAll('.stat-num').forEach(countUp);
+          io.unobserve(e.target);
+        }
+      });
+    },{threshold:0.15});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  })();
+
+  // count-up
+  function countUp(el){
+    if(el.dataset.done) return; el.dataset.done='1';
+    const target = parseFloat(el.dataset.to);
+    const dec = parseInt(el.dataset.dec||'0');
+    const prefix = el.dataset.prefix||'';
+    const suffix = el.dataset.suffix||'';
+    const dur = 1400;
+    let start;
+    function step(ts){
+      if(!start) start=ts;
+      const p = Math.min((ts-start)/dur,1);
+      const eased = 1 - Math.pow(1-p, 3);
+      el.innerHTML = prefix + (eased*target).toFixed(dec) + suffix;
+      if(p<1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+</script>
+</body>
+</html>
