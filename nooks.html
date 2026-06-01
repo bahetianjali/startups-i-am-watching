@@ -96,14 +96,14 @@
     content:"";position:absolute;inset:0;opacity:.06;pointer-events:none;
     background-image:radial-gradient(circle at 25% 30%,var(--lime) 0,transparent 40%),radial-gradient(circle at 80% 70%,var(--lime) 0,transparent 35%);
   }
-  .stats-inner{max-width:var(--max);margin:0 auto;padding:0 var(--gutter);display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;z-index:1}
-  .stat{padding:0 22px;border-right:1px solid var(--line-dark);position:relative}
+  .stats-inner{width:100%;max-width:1100px;margin:0 auto;padding:0 64px;display:flex;align-items:flex-start;position:relative;z-index:1}
+  .stat{flex:1 1 0;min-width:0;padding:0 20px;border-right:1px solid var(--line-dark)}
   .stat:first-child{padding-left:0}
   .stat:last-child{padding-right:0;border-right:none}
   .stat-num{
     display:block;font-family:var(--f-d);font-weight:800;
-    font-size:clamp(36px,6vw,62px);line-height:1;color:var(--lime);
-    letter-spacing:-.03em;margin-bottom:18px;font-variant-numeric:tabular-nums;
+    font-size:clamp(26px,3vw,48px);line-height:1;color:var(--lime);
+    letter-spacing:-.03em;margin-bottom:18px;font-variant-numeric:tabular-nums;white-space:nowrap;
   }
   .stat-label{font-family:var(--f-m);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:#9A9A93;line-height:1.55}
   .stat-src{display:block;color:#5E5D58;margin-top:6px;font-size:9.5px;letter-spacing:.03em;text-transform:none}
@@ -178,8 +178,10 @@
   @media(max-width:640px){
     body{font-size:17px}
     .container{padding:0 22px}
-    .stats-inner{grid-template-columns:repeat(2,1fr);gap:36px 0;padding:0 22px}
-    .stat{padding:0 14px;border-right:1px solid var(--line-dark)}
+    .stats-inner{flex-wrap:wrap;padding:0 22px}
+    .stat{flex:1 1 45%;padding:20px 14px;border-right:none;border-bottom:1px solid var(--line-dark)}
+    .stat:nth-child(odd){border-right:1px solid var(--line-dark)}
+    .stat:nth-child(3),.stat:nth-child(4){border-bottom:none}
     .stat:nth-child(2){border-right:none;padding-right:0}
     .stat:nth-child(3){padding-left:0}
     .stat:nth-child(odd){border-right:1px solid var(--line-dark)}
