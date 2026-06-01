@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Runway · Startups I Am Watching</title>
+<meta name="description" content="Notes on Runway: why financial modeling software built by someone who found finance intimidating is exactly the right product bet.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#F7F7F2;--bg-2:#EEEDE5;--dark:#111110;--lime:#C9F455;--lime-dim:#8BAF20;--ink:#161614;--ink-2:#4A4A45;--muted:#8E8C84;--line:#DDD9CC;--line-dark:#2C2C28;--max:760px;--gutter:32px;--f-d:"Syne",sans-serif;--f-b:"Instrument Sans",sans-serif;--f-m:"JetBrains Mono",monospace}
+  *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:var(--f-b);font-size:19px;line-height:1.65;-webkit-font-smoothing:antialiased;cursor:none;overflow-x:hidden}
+  a,button{cursor:none}
+  body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.04;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+  .cursor{width:10px;height:10px;background:var(--lime);border-radius:50%;position:fixed;left:0;top:0;z-index:9999;pointer-events:none;transform:translate(-50%,-50%);transition:width .2s,height .2s;mix-blend-mode:multiply}
+  .cursor.over-dark{mix-blend-mode:screen}.cursor.hover{width:28px;height:28px;background:rgba(201,244,85,.35)}
+  @media(hover:none){.cursor{display:none}body,a,button{cursor:auto}}
+  .container{position:relative;z-index:1;max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+  .full-bleed{width:100%;position:relative}
+  header.site{background:var(--dark);color:#fff;position:relative;z-index:2}
+  .masthead{max-width:var(--max);margin:0 auto;padding:18px var(--gutter);display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .brand{font-family:var(--f-m);font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:#fff;text-decoration:none;font-weight:500;display:inline-flex;align-items:center;gap:10px}
+  .brand .dot{width:8px;height:8px;background:var(--lime);border-radius:50%}.brand span{color:var(--lime)}
+  nav.site{display:flex;flex-wrap:wrap;gap:6px 18px}
+  nav.site a{font-family:var(--f-m);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#888;text-decoration:none;position:relative;padding:4px 0;transition:color .2s}
+  nav.site a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--lime);transition:width .25s}
+  nav.site a:hover{color:#fff}nav.site a:hover::after,nav.site a.active::after{width:100%}nav.site a.active{color:#fff}
+  .hero{padding:90px 0 50px}
+  .eyebrow{font-family:var(--f-m);font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--lime-dim);margin-bottom:28px;display:inline-flex;align-items:center;gap:10px}
+  .eyebrow::before{content:"";width:24px;height:1px;background:var(--lime-dim)}
+  h1.title{font-family:var(--f-d);font-weight:800;font-size:clamp(72px,14vw,156px);line-height:.88;letter-spacing:-.045em;margin-bottom:24px;color:var(--ink)}
+  h1.title em{font-style:italic;font-weight:600;color:var(--lime-dim)}
+  .tagline{font-family:var(--f-b);font-size:clamp(19px,3vw,24px);color:var(--ink-2);line-height:1.4;max-width:580px;margin-bottom:48px}
+  .tagline mark{background:var(--lime);color:var(--ink);padding:0 6px;font-weight:500}
+  .meta{display:flex;flex-wrap:wrap;gap:8px 24px;font-family:var(--f-m);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .meta .sep{color:var(--line)}.meta a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--lime)}
+  .stats{background:var(--dark);padding:72px 0;margin:64px 0;position:relative;overflow:hidden}
+  .stats::before{content:"";position:absolute;inset:0;opacity:.06;pointer-events:none;background-image:radial-gradient(circle at 20% 50%,var(--lime) 0,transparent 45%),radial-gradient(circle at 80% 50%,var(--lime) 0,transparent 40%)}
+  .stats-inner{width:100%;max-width:1100px;margin:0 auto;padding:0 64px;display:flex;align-items:flex-start;position:relative;z-index:1}
+  .stat{flex:1 1 0;min-width:0;padding:0 20px;border-right:1px solid var(--line-dark)}
+  .stat:first-child{padding-left:0}.stat:last-child{padding-right:0;border-right:none}
+  .stat-num{display:block;font-family:var(--f-d);font-weight:800;font-size:clamp(26px,3vw,48px);line-height:1;color:var(--lime);letter-spacing:-.03em;margin-bottom:18px;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .stat-label{font-family:var(--f-m);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:#9A9A93;line-height:1.55}
+  .stat-src{display:block;color:#5E5D58;margin-top:6px;font-size:9.5px;letter-spacing:.03em;text-transform:none}
+  article p{margin-bottom:24px;color:var(--ink-2)}article p.lead{font-size:22px;color:var(--ink);line-height:1.55}article strong{color:var(--ink);font-weight:600}
+  .section-label{font-family:var(--f-m);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--lime-dim);margin:72px 0 10px;display:inline-flex;align-items:center;gap:10px}
+  .section-label::before{content:"";width:18px;height:1px;background:var(--lime-dim)}
+  h2{font-family:var(--f-d);font-weight:700;font-size:clamp(28px,4.5vw,40px);line-height:1.02;letter-spacing:-.025em;margin-bottom:26px;color:var(--ink)}
+  .pull{font-family:var(--f-d);font-weight:600;font-size:clamp(30px,5.5vw,54px);line-height:1.04;letter-spacing:-.025em;color:var(--ink);margin:64px 0}
+  .pull mark{background:var(--lime);color:var(--ink);padding:0 8px;font-style:italic}
+  .comp-wrap{margin:24px 0 32px;border:1px solid var(--line);border-radius:2px;overflow:hidden;background:var(--bg-2)}
+  .comp-head{display:grid;grid-template-columns:1.4fr repeat(4,1fr);background:var(--dark);color:#fff;font-family:var(--f-m);font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:14px 18px;gap:8px}
+  .comp-head div:first-child{color:var(--lime)}.comp-head div:not(:first-child){text-align:center;color:#9A9A93}
+  .comp-row{display:grid;grid-template-columns:1.4fr repeat(4,1fr);padding:16px 18px;gap:8px;align-items:center;border-bottom:1px solid var(--line);transition:background .2s}
+  .comp-row:last-child{border-bottom:none}.comp-row:hover{background:var(--bg)}.comp-row.you{background:#F3FBD9}.comp-row.you:hover{background:#EDF8C2}
+  .co-name{font-family:var(--f-d);font-weight:600;font-size:16px;color:var(--ink);letter-spacing:-.01em}
+  .co-name small{display:block;font-family:var(--f-m);font-size:9.5px;letter-spacing:.06em;color:var(--muted);text-transform:uppercase;font-weight:400;margin-top:2px}
+  .cap{text-align:center;font-size:20px;font-family:var(--f-m)}.cap.full{color:var(--lime-dim)}.cap.part{color:var(--muted)}.cap.none{color:var(--line)}
+  .legend{font-family:var(--f-m);font-size:10.5px;letter-spacing:.06em;color:var(--muted);margin-top:12px;display:flex;flex-wrap:wrap;gap:16px}
+  .legend span{display:inline-flex;align-items:center;gap:6px}
+  figure.diagram{margin:36px 0 18px;padding:28px 24px 22px;background:var(--bg-2);border:1px solid var(--line);border-radius:2px}
+  figure.diagram svg{width:100%;height:auto;display:block}
+  figcaption{font-family:var(--f-m);font-size:11px;letter-spacing:.04em;color:var(--muted);margin-top:14px;line-height:1.55}
+  .callout{background:var(--dark);color:#D6D5CC;padding:34px 36px;margin:48px 0;border-left:4px solid var(--lime);font-size:18px;line-height:1.55}
+  .callout strong{color:var(--lime);font-family:var(--f-d);font-weight:700;font-size:19px;display:block;margin-bottom:10px;letter-spacing:-.01em}.callout em{color:#fff;font-style:italic}
+  footer.site{background:var(--dark);color:#9A9A93;padding:50px 0 70px;margin-top:80px;font-family:var(--f-m);font-size:12px;letter-spacing:.04em;line-height:1.8}
+  footer.site .inner{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+  footer.site .name{color:#fff;font-family:var(--f-d);font-size:20px;font-weight:700;letter-spacing:-.01em;margin-bottom:8px}
+  footer.site a{color:var(--lime);text-decoration:none}footer.site a:hover{text-decoration:underline}
+  .backlink{display:inline-flex;align-items:center;gap:8px;margin-top:22px;font-family:var(--f-m);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#fff;text-decoration:none;padding:10px 0;border-bottom:1px solid var(--lime)}.backlink:hover{color:var(--lime)}
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}.reveal.in{opacity:1;transform:none}
+  @media(max-width:640px){body{font-size:17px}.container{padding:0 22px}.stats-inner{flex-wrap:wrap;padding:0 28px}.stat{flex:1 1 45%;padding:20px 12px;border-right:none;border-bottom:1px solid var(--line-dark)}.stat:nth-child(odd){border-right:1px solid var(--line-dark)}.stat:nth-child(3),.stat:nth-child(4){border-bottom:none}.comp-head,.comp-row{grid-template-columns:1.2fr repeat(4,.5fr);font-size:9px;padding:10px}.co-name{font-size:13px}.cap{font-size:16px}}
+</style>
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+<header class="site">
+  <div class="masthead">
+    <a class="brand" href="index.html"><span class="dot"></span>Startups I Am <span>Watching</span></a>
+    <nav class="site">
+      <a href="nooks.html">Nooks</a><a href="standard-intelligence.html">Standard Intelligence</a>
+      <a href="glimpse.html">Glimpse</a><a href="runway.html" class="active">Runway</a><a href="ramp.html">Ramp</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <div class="container">
+    <section class="hero">
+      <p class="eyebrow reveal">No. 04 · Financial Modeling</p>
+      <h1 class="title reveal">Runway<em>.</em></h1>
+      <p class="tagline reveal">Finance software built by someone who found finance tools intimidating. That turns out to be <mark>exactly the right starting point</mark>.</p>
+      <div class="meta reveal">
+        <span>San Francisco</span><span class="sep">/</span><span>$33.5M raised</span><span class="sep">/</span><span>Founded 2020</span><span class="sep">/</span>
+        <a href="https://runway.com" target="_blank" rel="noopener">runway.com</a>
+      </div>
+    </section>
+  </div>
+  <section class="stats full-bleed reveal" data-dark>
+    <div class="stats-inner">
+      <div class="stat">
+        <span class="stat-num" data-to="33.5" data-dec="1" data-prefix="$" data-suffix="M">$0M</span>
+        <span class="stat-label">Total Raised<span class="stat-src">Initialized Capital, Andreessen Horowitz, Garry Tan</span></span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" data-to="3.9" data-dec="1" data-prefix="$" data-suffix="B">$0B</span>
+        <span class="stat-label">FP&amp;A Software Market<span class="stat-src">2024 · growing at 16.4% CAGR</span></span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" data-to="9.7" data-dec="1" data-prefix="$" data-suffix="B">$0B</span>
+        <span class="stat-label">FP&amp;A Market by 2032<span class="stat-src">Verified Market Research</span></span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" data-to="80" data-dec="0" data-suffix="%">0%</span>
+        <span class="stat-label">FP&amp;A tasks AI will automate<span class="stat-src">Gartner projection</span></span>
+      </div>
+    </div>
+  </section>
+  <div class="container">
+    <article>
+      <p class="lead reveal">Most finance tools are built by people who understand finance. Runway feels like it was built by someone who found finance confusing and decided that was a problem worth fixing. Siqi Chen, the CEO, has said publicly that financial expertise always felt like something for "real business people," and that frustration with spreadsheets was what motivated the company. That is an unusual founder origin for a financial modeling tool, and it shows in the product.</p>
+      <p class="reveal">The result is a platform that startup founders and operators actually want to use. Customers include Superhuman, Stability AI, and Sandbox VR. The $33.5M in funding includes Initialized Capital leading the Series A, Garry Tan joining the board, and angels including Elad Gil and the founders of Dropbox, Notion, and Product Hunt. That is a concentrated network of people who understand product quality at a high level.</p>
+      <p class="section-label reveal">The Market</p>
+      <h2 class="reveal">A category being rebuilt from scratch by AI.</h2>
+      <p class="reveal">The FP&A software market was $3.9B in 2024 and is on track for $9.7B by 2032, growing at 16.4% annually. The market is growing not because companies are buying more of the same thing but because the thing is changing. Gartner projects AI will automate 80% of routine FP&A tasks. What that means in practice is that the planning layer, which has historically been a collection of Excel exports, email attachments, and quarterly review decks, is being replaced by software that can actually respond to changes in real time.</p>
+      <p class="reveal">The incumbent tools, Anaplan, Workday Adaptive Planning, Planful, were built when the hardest problem was getting the numbers in the same place. The new problem is keeping them current, collaborative, and interpretable without a finance degree. That is a different product problem.</p>
+      <p class="section-label reveal">The Landscape</p>
+      <h2 class="reveal">Where the existing tools stop short.</h2>
+      <div class="comp-wrap reveal">
+        <div class="comp-head">
+          <div>Player</div><div>Real-time<br>live sync</div><div>Collaborative<br>editing</div><div>AI-native<br>forecasting</div><div>Product-grade<br>UX</div>
+        </div>
+        <div class="comp-row you">
+          <div class="co-name">Runway<small>The subject</small></div>
+          <div class="cap full">●</div><div class="cap full">●</div><div class="cap full">●</div><div class="cap full">●</div>
+        </div>
+        <div class="comp-row">
+          <div class="co-name">Anaplan<small>Enterprise FP&amp;A</small></div>
+          <div class="cap full">●</div><div class="cap part">◐</div><div class="cap part">◐</div><div class="cap part">◐</div>
+        </div>
+        <div class="comp-row">
+          <div class="co-name">Workday Adaptive<small>Legacy planning</small></div>
+          <div class="cap full">●</div><div class="cap part">◐</div><div class="cap part">◐</div><div class="cap part">◐</div>
+        </div>
+        <div class="comp-row">
+          <div class="co-name">Cube / Planful<small>SMB-focused</small></div>
+          <div class="cap part">◐</div><div class="cap part">◐</div><div class="cap part">◐</div><div class="cap part">◐</div>
+        </div>
+        <div class="comp-row">
+          <div class="co-name">Excel / Google Sheets<small>Industry default</small></div>
+          <div class="cap none">○</div><div class="cap part">◐</div><div class="cap none">○</div><div class="cap none">○</div>
+        </div>
+      </div>
+      <p class="legend reveal"><span><span style="color:var(--lime-dim)">●</span> Purpose-built</span><span><span style="color:var(--muted)">◐</span> Partial / legacy</span><span><span style="color:var(--line)">○</span> Not a focus</span></p>
+      <p class="reveal">Anaplan and Workday Adaptive Planning were built for large enterprise finance teams with dedicated administrators. They are powerful but opaque, and they require significant implementation work. Most growing companies end up on Excel because the enterprise tools are too heavy and there is nothing useful in between. That is the gap Runway occupies.</p>
+      <p class="section-label reveal">The Engineering</p>
+      <h2 class="reveal">The hardest part has nothing to do with the interface.</h2>
+      <p class="reveal">Financial models are fundamentally relational and dynamic. A change upstream, a new headcount plan or a revised revenue assumption, should cascade correctly through every dependent calculation in real time, across a shared collaborative workspace, without breaking anything. Building that with spreadsheet-level flexibility but software-level reliability is the core technical problem. Spreadsheets are forgiving. Shared cloud applications with real-time sync and multiple concurrent editors are not.</p>
+      <figure class="diagram reveal">
+        <svg viewBox="0 0 660 190" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <style>.dm{font-family:'JetBrains Mono',monospace;font-size:10px;fill:#4A4A45;letter-spacing:.04em}.ds{font-family:'JetBrains Mono',monospace;font-size:9px;fill:#8E8C84;letter-spacing:.03em}.dt{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;fill:#161614}</style>
+            <marker id="a4" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0 0 L7 3.5 L0 7 z" fill="#8BAF20"/></marker>
+          </defs>
+          <text class="ds" x="20" y="22">LIVE DATA SOURCES</text>
+          <rect x="20" y="30" width="95" height="35" rx="2" fill="#F7F7F2" stroke="#DDD9CC"/>
+          <text class="dt" x="67" y="45" text-anchor="middle">QUICKBOOKS</text>
+          <text class="ds" x="67" y="58" text-anchor="middle">accounting</text>
+          <rect x="20" y="75" width="95" height="35" rx="2" fill="#F7F7F2" stroke="#DDD9CC"/>
+          <text class="dt" x="67" y="90" text-anchor="middle">STRIPE</text>
+          <text class="ds" x="67" y="103" text-anchor="middle">revenue</text>
+          <rect x="20" y="120" width="95" height="35" rx="2" fill="#F7F7F2" stroke="#DDD9CC"/>
+          <text class="dt" x="67" y="135" text-anchor="middle">HRIS / PAYROLL</text>
+          <text class="ds" x="67" y="148" text-anchor="middle">headcount</text>
+          <path d="M115 47 L155 90" stroke="#DDD9CC" stroke-width="1.5" marker-end="url(#a4)"/>
+          <path d="M115 92 L155 96" stroke="#DDD9CC" stroke-width="1.5" marker-end="url(#a4)"/>
+          <path d="M115 137 L155 102" stroke="#DDD9CC" stroke-width="1.5" marker-end="url(#a4)"/>
+          <rect x="155" y="68" width="130" height="60" rx="2" fill="#F3FBD9" stroke="#C9F455"/>
+          <text class="dt" x="220" y="90" text-anchor="middle">UNIFIED MODEL</text>
+          <text class="ds" x="220" y="104" text-anchor="middle">relational + dynamic</text>
+          <text class="ds" x="220" y="118" text-anchor="middle">cascades on change</text>
+          <path d="M285 98 L325 98" stroke="#8BAF20" stroke-width="1.5" marker-end="url(#a4)"/>
+          <rect x="325" y="68" width="110" height="60" rx="2" fill="#F3FBD9" stroke="#C9F455"/>
+          <text class="dt" x="380" y="90" text-anchor="middle">REAL-TIME</text>
+          <text class="dt" x="380" y="104" text-anchor="middle">COLLABORATION</text>
+          <text class="ds" x="380" y="118" text-anchor="middle">concurrent editors</text>
+          <path d="M435 98 L475 98" stroke="#8BAF20" stroke-width="1.5" marker-end="url(#a4)"/>
+          <rect x="475" y="68" width="110" height="60" rx="2" fill="#F3FBD9" stroke="#C9F455"/>
+          <text class="dt" x="530" y="90" text-anchor="middle">AI FORECASTS</text>
+          <text class="dt" x="530" y="104" text-anchor="middle">+ SCENARIOS</text>
+          <text class="ds" x="530" y="118" text-anchor="middle">ambient intelligence</text>
+          <text class="ds" x="220" y="155" text-anchor="middle" fill="#8BAF20">KEEPING THIS CONSISTENT IS THE HARD PART</text>
+        </svg>
+        <figcaption>The integration layer is where the real engineering lives. Pulling live data from multiple sources, reconciling it into a coherent model, keeping it consistent as multiple editors make changes simultaneously, and surfacing the right forecast at the right moment. The clean UX on top is the product. This is the engineering underneath.</figcaption>
+      </figure>
+      <p class="reveal">The integration layer is also underappreciated. Pulling live data from QuickBooks, NetSuite, Stripe, and payroll systems, reconciling it into a coherent model, and keeping it current without manual exports is a backend problem that requires real systems thinking. I have built versions of this problem: at Amazon, I built a consistency tool reconciling pricing data across S3 and DynamoDB. The cascading-update problem is non-trivial and the failure modes are subtle.</p>
+      <p class="pull reveal">The hardest part is not the interface. It is keeping the numbers <mark>consistent</mark> when five people are editing the same model at once.</p>
+      <p class="section-label reveal">The Frontier</p>
+      <h2 class="reveal">From reactive reporting to proactive intelligence.</h2>
+      <p class="reveal">Runway launched what they call an Ambient Intelligence Platform for Finance Teams in September 2024. The idea is that the model learns from how a team makes decisions, surfaces anomalies and risks before the monthly review, and gradually becomes less of a tool the CFO opens and more of a system that runs in the background. That is a meaningful shift in what FP&A software is supposed to do.</p>
+      <p class="reveal">Whether that bet works depends on whether the AI layer can actually learn the right things from financial data that is noisy, retrospective, and full of one-time events. Finance data is structurally different from the kind of data AI systems are typically trained on. The teams that figure that out will have built something genuinely hard to replicate.</p>
+      <div class="callout reveal">
+        <strong>The question I keep sitting with</strong>
+        Does AI move FP&A from a reporting tool into a decision-making layer, or does it just make the existing tool faster? <em>Runway is betting on the former.</em> If the Ambient Intelligence platform learns how a company thinks about its own numbers, the switching cost becomes very high. That is either a compelling moat or an ambitious product claim waiting to be tested.
+      </div>
+    </article>
+  </div>
+</main>
+<footer class="site">
+  <div class="inner">
+    <div class="name">Anjali Baheti</div>
+    Backend and product engineer. Real-time communications, backend systems, and AI integrations.<br>
+    <a href="mailto:bahetianjali.10@gmail.com">bahetianjali.10@gmail.com</a> &middot; <a href="https://linkedin.com/in/bahetianjali" target="_blank" rel="noopener">linkedin.com/in/bahetianjali</a>
+    <br><a class="backlink" href="index.html">&larr; All companies</a>
+  </div>
+</footer>
+<script>
+(function(){const c=document.getElementById('cursor');let x=0,y=0,cx=0,cy=0;document.addEventListener('mousemove',e=>{x=e.clientX;y=e.clientY});function tick(){cx+=(x-cx)*.22;cy+=(y-cy)*.22;c.style.transform=`translate(${cx}px,${cy}px) translate(-50%,-50%)`;const el=document.elementFromPoint(x,y);if(el){const d=el.closest('[data-dark],header.site,footer.site,.callout');c.classList.toggle('over-dark',!!d)}requestAnimationFrame(tick)}tick();document.querySelectorAll('a,.stat,.comp-row').forEach(el=>{el.addEventListener('mouseenter',()=>c.classList.add('hover'));el.addEventListener('mouseleave',()=>c.classList.remove('hover'))})})();
+(function(){const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');e.target.querySelectorAll('.stat-num').forEach(countUp);io.unobserve(e.target)}})},{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>io.observe(el))})();
+function countUp(el){if(el.dataset.done)return;el.dataset.done='1';const target=parseFloat(el.dataset.to),dec=parseInt(el.dataset.dec||'0'),prefix=el.dataset.prefix||'',suffix=el.dataset.suffix||'',dur=1400;let start;function step(ts){if(!start)start=ts;const p=Math.min((ts-start)/dur,1),eased=1-Math.pow(1-p,3);el.innerHTML=prefix+(eased*target).toFixed(dec)+suffix;if(p<1)requestAnimationFrame(step)}requestAnimationFrame(step)}
+</script>
+</body>
+</html>
